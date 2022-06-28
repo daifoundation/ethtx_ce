@@ -86,12 +86,6 @@
             margin: 0;
         }
 
-        .hosted-by {
-            text-align: right;
-            margin-top: 35px;
-            margin-bottom: 25px;
-        }
-
         .input {
             font-size: 18px;
             width: 100%;
@@ -110,15 +104,6 @@
             background: url(/static/images/chevron_down.png) no-repeat right 13px center;
         }
 
-        .link {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-        }
-
         @media screen and (max-width: 568px) {
             .panel-container {
                 padding: 32px 20px;
@@ -132,9 +117,6 @@
     <div class="container">
         <div style="display: flex; justify-content: space-between;">
             <div class="main-title">EthTx Transaction Decoder</div>
-            <div class="hosted-by">
-                <a href="https://tokenflow.live"> <img src="/static/images/hosted_by.png" /> </a>
-            </div>
         </div>
         <form action="/" method="GET"
         onsubmit="this.action = '/' + this.net.options[this.net.selectedIndex].value + '/' + this.tx.value;">
@@ -155,29 +137,12 @@
             </div>
         </form>
         <div class="panels">
-            <div class="panel-container">
-                <h2>About EthTx</h2>
-                <p>EthTx is an open source decoder of blockchain transactions that is made freely available to the Ethereum Community.</p>
-                <p>Everybody is invited to contribute to the codebase (<a href="https://github.com/EthTx/ethtx_ce" class="link">GitHub</a>) via Pull Request or Issues and anyone can launch their own instances of EthTx.</p>
-            </div>
-            <div class="panel-container">
-                <h2>About this implementation</h2>
-                <p>This instance of EthTx is hosted by <a href="https://tokenflow.live" class="link">Token Flow Insights</a>, the team that developed EthTx and the current maintainer of the open source repository.</p>
-                <p>Use of this implementation is under the <a href="terms" class="link">Terms of Service</a> and <a href="privacy" class="link">Privacy Policy</a></p>
-            </div>
+
         </div>
 
     </div>
     {% include './partials/footer.html' %}
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            function trackDecode() {
-                fathom.trackGoal('PR1BHWAQ')
-            }
 
-            document.getElementById('tx_submit').addEventListener('click', trackDecode)
-        });
-    </script>
     <script type="text/javascript">
         function handleValueChange() {
             document.getElementById('tx_submit').disabled = document.getElementById("tx").value.trim() === "";
